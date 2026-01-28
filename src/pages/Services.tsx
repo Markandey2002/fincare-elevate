@@ -34,6 +34,7 @@ import { Button } from "@/components/ui/button";
 import { OptimizedImage } from "@/components/OptimizedImage";
 
 // Services ordered with LOAN SERVICES FIRST (Priority)
+// Enhanced with professional, relevant images for each service
 const services = [
   // ========== LOAN SERVICES (TOP PRIORITY) ==========
   {
@@ -48,7 +49,8 @@ const services = [
       "Expert guidance throughout the process",
     ],
     gradient: "from-secondary to-cyan",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=600&fit=crop&q=85",
+    imageAlt: "Business working capital and cash flow management",
   },
   {
     icon: DollarSign,
@@ -62,7 +64,8 @@ const services = [
       "Professional assistance",
     ],
     gradient: "from-cyan to-blue-500",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&q=85",
+    imageAlt: "Term loan and business financing solutions",
   },
   {
     icon: Receipt,
@@ -76,7 +79,8 @@ const services = [
       "Ongoing support",
     ],
     gradient: "from-gold to-orange-400",
-    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop&q=85",
+    imageAlt: "Overdraft facilities and flexible banking services",
   },
   {
     icon: FileText,
@@ -90,7 +94,8 @@ const services = [
       "Streamlined process",
     ],
     gradient: "from-purple-500 to-pink-500",
-    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=600&fit=crop&q=85",
+    imageAlt: "Invoice discounting and accounts receivable financing",
   },
   {
     icon: User,
@@ -104,7 +109,8 @@ const services = [
       "Personalized service",
     ],
     gradient: "from-secondary to-teal-400",
-    image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=800&h=600&fit=crop&q=85",
+    imageAlt: "Personal loan and individual financing solutions",
   },
   {
     icon: Home,
@@ -118,7 +124,8 @@ const services = [
       "Expert guidance",
     ],
     gradient: "from-emerald-500 to-green-400",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&q=85",
+    imageAlt: "Home loan and mortgage financing in UAE",
   },
   {
     icon: CreditCard,
@@ -132,7 +139,8 @@ const services = [
       "24/7 customer support",
     ],
     gradient: "from-indigo-500 to-purple-500",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop&q=85",
+    imageAlt: "Credit card and payment solutions",
   },
   {
     icon: Banknote,
@@ -145,7 +153,8 @@ const services = [
       "Syndicated Loans: large-scale loans from multiple lenders",
     ],
     gradient: "from-amber-500 to-orange-500",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&q=85",
+    imageAlt: "Comprehensive lending and financing services",
   },
   // ========== FINANCIAL ADVISORY SERVICES ==========
   {
@@ -160,7 +169,8 @@ const services = [
       "Expert insights",
     ],
     gradient: "from-blue-500 to-cyan-500",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=85",
+    imageAlt: "Business planning and strategic consulting",
   },
   {
     icon: LineChart,
@@ -174,7 +184,8 @@ const services = [
       "Comprehensive support",
     ],
     gradient: "from-teal-500 to-green-500",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&q=85",
+    imageAlt: "Financial guidance and advisory services",
   },
   {
     icon: BarChart3,
@@ -188,7 +199,8 @@ const services = [
       "Stability maintenance",
     ],
     gradient: "from-rose-500 to-pink-500",
-    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop&q=85",
+    imageAlt: "Portfolio management and investment strategies",
   },
   {
     icon: Building2,
@@ -201,7 +213,8 @@ const services = [
       "Electronic Banking: online platforms for transaction management",
     ],
     gradient: "from-violet-500 to-purple-500",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&q=85",
+    imageAlt: "Transaction banking and cash management services",
   },
   {
     icon: TrendingUp,
@@ -214,7 +227,8 @@ const services = [
       "Investment Services: investment products and portfolio management",
     ],
     gradient: "from-sky-500 to-blue-500",
-    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop&q=85",
+    imageAlt: "Treasury services and foreign exchange management",
   },
   {
     icon: Shield,
@@ -227,7 +241,8 @@ const services = [
       "Compliance and Regulatory Services: regulatory advisory and compliance",
     ],
     gradient: "from-red-500 to-rose-500",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop&q=85",
+    imageAlt: "Risk management and compliance services",
   },
   {
     icon: Globe,
@@ -240,7 +255,8 @@ const services = [
       "Factoring: invoice discounting and factoring services",
     ],
     gradient: "from-cyan-500 to-teal-500",
-    image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=800&h=600&fit=crop&q=85",
+    imageAlt: "Trade services and international finance",
   },
   {
     icon: Smartphone,
@@ -253,7 +269,8 @@ const services = [
       "Blockchain and Distributed Ledger Technology: innovative solutions for trade finance and supply chain management",
     ],
     gradient: "from-indigo-500 to-violet-500",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop&q=85",
+    imageAlt: "Digital banking and fintech solutions",
   },
   {
     icon: Handshake,
@@ -266,7 +283,8 @@ const services = [
       "Research and Analysis: industry research and analysis reports",
     ],
     gradient: "from-emerald-500 to-teal-500",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=85",
+    imageAlt: "Corporate finance and M&A advisory services",
   },
 ];
 
@@ -373,36 +391,48 @@ export default function Services() {
                   </Button>
                 </div>
 
-                {/* Visual */}
+                {/* Service Image - Prominent Display */}
                 <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                  <div className="relative">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-10 rounded-3xl blur-2xl`} />
-                    <div className="relative card-glass p-6 sm:p-8 lg:p-12 overflow-hidden">
-                      {/* Service Image */}
-                      <div className="absolute inset-0 opacity-10 group-hover:opacity-15 transition-opacity duration-500">
+                  <div className="relative group">
+                    {/* Decorative gradient background */}
+                    <div className={`absolute -inset-2 bg-gradient-to-br ${service.gradient} opacity-20 rounded-3xl blur-xl group-hover:opacity-30 transition-opacity duration-500`} />
+                    
+                    {/* Image Container */}
+                    <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl group-hover:shadow-3xl transition-all duration-500">
+                      {/* Professional Service Image */}
+                      <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] overflow-hidden">
                         <OptimizedImage
                           src={service.image}
-                          alt={service.title}
-                          className="w-full h-full"
+                          alt={service.imageAlt || service.title}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                           objectFit="cover"
+                          loading="lazy"
                         />
+                        {/* Subtle gradient overlay for better text readability if needed */}
+                        <div className={`absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                       </div>
-                      <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-5`} />
-                      <div className="relative z-10">
-                      <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                        <div className="bg-white/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center">
-                          <div className="text-2xl sm:text-3xl font-bold text-primary mb-1">100%</div>
-                          <div className="text-xs sm:text-sm text-muted-foreground">Compliance</div>
-                        </div>
-                        <div className="bg-white/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center">
-                          <div className="text-2xl sm:text-3xl font-bold text-secondary mb-1">24/7</div>
-                          <div className="text-xs sm:text-sm text-muted-foreground">Support</div>
-                        </div>
-                        <div className="bg-white/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center col-span-2">
-                          <div className="text-xl sm:text-2xl md:text-3xl font-bold text-gradient mb-1">Expert Team</div>
-                          <div className="text-xs sm:text-sm text-muted-foreground">Dedicated professionals at your service</div>
-                        </div>
+                      
+                      {/* Service Icon Badge Overlay */}
+                      <div className={`absolute top-4 right-4 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-xl backdrop-blur-sm bg-white/10 border border-white/20`}>
+                        <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                       </div>
+                      
+                      {/* Stats Cards Overlay (Bottom) */}
+                      <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 bg-gradient-to-t from-black/60 via-black/40 to-transparent backdrop-blur-sm">
+                        <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                          <div className="bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl p-2 sm:p-3 text-center">
+                            <div className="text-lg sm:text-xl font-bold text-primary mb-0.5">100%</div>
+                            <div className="text-[10px] sm:text-xs text-muted-foreground">Compliance</div>
+                          </div>
+                          <div className="bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl p-2 sm:p-3 text-center">
+                            <div className="text-lg sm:text-xl font-bold text-secondary mb-0.5">24/7</div>
+                            <div className="text-[10px] sm:text-xs text-muted-foreground">Support</div>
+                          </div>
+                          <div className="bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl p-2 sm:p-3 text-center">
+                            <div className="text-lg sm:text-xl font-bold text-gradient mb-0.5">Expert</div>
+                            <div className="text-[10px] sm:text-xs text-muted-foreground">Team</div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
