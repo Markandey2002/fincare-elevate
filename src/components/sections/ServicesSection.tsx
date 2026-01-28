@@ -8,44 +8,48 @@ import {
   Building2, 
   PiggyBank, 
   FileSpreadsheet,
-  ArrowRight 
+  ArrowRight,
+  Wallet,
+  DollarSign,
+  Receipt
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { OptimizedImage } from "@/components/OptimizedImage";
 
+// Services preview - Loan services prioritized
 const services = [
   {
-    icon: Banknote,
-    title: "Business Funding Assistance",
-    description: "Access diverse funding options tailored to your business stage and growth objectives. We connect you with the right financial partners.",
+    icon: Wallet,
+    title: "Working Capital Loan",
+    description: "Secure flexible working capital loans from UAE banks, ensuring smooth business operations and cash flow.",
     gradient: "from-secondary to-cyan",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80",
   },
   {
-    icon: LineChart,
-    title: "Financial Advisory",
-    description: "Strategic financial guidance from experienced advisors. Make informed decisions with data-driven insights and expert recommendations.",
+    icon: DollarSign,
+    title: "Term Loan",
+    description: "Reliable term loans from UAE banks with secure, transparent processes and competitive rates.",
     gradient: "from-cyan to-blue-500",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80",
   },
   {
-    icon: Building2,
-    title: "SME Consulting",
-    description: "Comprehensive consulting services for small and medium enterprises. Optimize operations, improve efficiency, and scale sustainably.",
+    icon: Banknote,
+    title: "Business Funding",
+    description: "Comprehensive funding solutions including SME loans, startup funding, and business expansion financing.",
     gradient: "from-gold to-orange-400",
     image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop&q=80",
   },
   {
-    icon: PiggyBank,
-    title: "Investment Planning",
-    description: "Build wealth with strategic investment planning. Diversified portfolios aligned with your risk tolerance and financial goals.",
+    icon: Receipt,
+    title: "Overdraft Facilities",
+    description: "Secure overdraft facilities from UAE banks for flexible cash flow management and financial agility.",
     gradient: "from-purple-500 to-pink-500",
     image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&h=400&fit=crop&q=80",
   },
   {
-    icon: FileSpreadsheet,
-    title: "Corporate Financial Structuring",
-    description: "Optimize your corporate financial structure for tax efficiency and regulatory compliance. Expert guidance for complex financial decisions.",
+    icon: LineChart,
+    title: "Financial Advisory",
+    description: "Strategic financial guidance from experienced advisors. Make informed decisions with expert recommendations.",
     gradient: "from-secondary to-teal-400",
     image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=600&h=400&fit=crop&q=80",
   },
@@ -104,15 +108,15 @@ export function ServicesSection() {
           </motion.p>
         </div>
 
-        {/* Services grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* Services grid - Stack on mobile */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 * index }}
-              className={`group relative ${index === 0 ? 'lg:col-span-2' : ''}`}
+              className={`group relative ${index === 0 ? 'sm:col-span-2 lg:col-span-2' : ''}`}
             >
               {/* Glassmorphism Card with Background */}
               <div className="relative h-full rounded-2xl overflow-hidden backdrop-blur-xl bg-white/60 border border-white/30 shadow-[0_8px_32px_0_rgba(0,0,0,0.1)] hover:shadow-[0_16px_48px_0_rgba(0,0,0,0.15)] transition-all duration-500 hover:-translate-y-1">
@@ -130,7 +134,7 @@ export function ServicesSection() {
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-[0.06] group-hover:opacity-[0.12] transition-opacity duration-500`} />
                 
                 {/* Content */}
-                <div className="relative z-10 p-8">
+                <div className="relative z-10 p-6 sm:p-8">
                 {/* Icon */}
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                   <service.icon className="w-7 h-7 text-white" />

@@ -33,8 +33,8 @@ export function Footer() {
 
       <div className="relative container-custom">
         {/* Main Footer */}
-        <div className="py-16 lg:py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <div className="py-12 sm:py-16 lg:py-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 lg:gap-8">
             {/* Brand Column */}
             <div className="lg:col-span-1">
               <Link to="/" className="flex items-center gap-3 mb-6">
@@ -52,14 +52,14 @@ export function Footer() {
               <div className="flex items-center gap-3">
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:-translate-y-1"
+                  className="w-12 h-12 sm:w-10 sm:h-10 rounded-xl bg-white/10 active:bg-white/20 flex items-center justify-center transition-all duration-300 min-w-[48px] min-h-[48px]"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:-translate-y-1"
+                  className="w-12 h-12 sm:w-10 sm:h-10 rounded-xl bg-white/10 active:bg-white/20 flex items-center justify-center transition-all duration-300 min-w-[48px] min-h-[48px]"
                   aria-label="Twitter"
                 >
                   <Twitter className="w-5 h-5" />
@@ -69,16 +69,16 @@ export function Footer() {
 
             {/* Company Links */}
             <div>
-              <h4 className="font-semibold text-white mb-6">Company</h4>
-              <ul className="space-y-4">
+              <h4 className="font-semibold text-white mb-4 sm:mb-6 text-base sm:text-lg">Company</h4>
+              <ul className="space-y-3 sm:space-y-4">
                 {footerLinks.company.map((link) => (
                   <li key={link.path}>
                     <Link
                       to={link.path}
-                      className="text-white/70 hover:text-white flex items-center gap-1 group transition-colors duration-300"
+                      className="text-white/70 active:text-white flex items-center gap-1 group transition-colors duration-300 text-sm sm:text-base min-h-[44px] sm:min-h-0"
                     >
                       {link.name}
-                      <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300" />
+                      <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300 hidden sm:block" />
                     </Link>
                   </li>
                 ))}
@@ -87,16 +87,16 @@ export function Footer() {
 
             {/* Services Links */}
             <div>
-              <h4 className="font-semibold text-white mb-6">Services</h4>
-              <ul className="space-y-4">
+              <h4 className="font-semibold text-white mb-4 sm:mb-6 text-base sm:text-lg">Services</h4>
+              <ul className="space-y-3 sm:space-y-4">
                 {footerLinks.services.map((link, index) => (
                   <li key={index}>
                     <Link
                       to={link.path}
-                      className="text-white/70 hover:text-white flex items-center gap-1 group transition-colors duration-300"
+                      className="text-white/70 active:text-white flex items-center gap-1 group transition-colors duration-300 text-sm sm:text-base min-h-[44px] sm:min-h-0"
                     >
                       {link.name}
-                      <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300" />
+                      <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300 hidden sm:block" />
                     </Link>
                   </li>
                 ))}

@@ -196,13 +196,13 @@ export default function Contact() {
       {/* Form Section - Split Layout like fundify.ae */}
       <section ref={formRef} className="section-padding relative overflow-hidden bg-background">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
             {/* Professional Image - Left Side */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               animate={formInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
-              className="relative"
+              className="relative order-2 lg:order-1"
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[3/4] lg:aspect-auto">
                 <OptimizedImage
@@ -225,7 +225,7 @@ export default function Contact() {
               initial={{ opacity: 0, x: 40 }}
               animate={formInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="card-premium p-8 lg:p-10"
+              className="card-premium p-6 sm:p-8 lg:p-10 order-1 lg:order-2"
             >
               <span className="inline-block px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-semibold mb-4">
                 TO BECOME A CLIENT
@@ -237,7 +237,7 @@ export default function Contact() {
                 Please, fulfill the form to get a consultation. After processing the data, a personal manager will contact you.
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium text-foreground">
                     Full Name *
@@ -249,7 +249,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="John Smith"
                     required
-                    className="h-12 rounded-xl border-border/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all duration-300"
+                    className="h-12 sm:h-12 text-base rounded-xl border-border/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all duration-300"
                   />
                 </div>
 
@@ -265,7 +265,7 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="john@company.com"
                     required
-                    className="h-12 rounded-xl border-border/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all duration-300"
+                    className="h-12 sm:h-12 text-base rounded-xl border-border/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all duration-300"
                   />
                 </div>
 
@@ -280,7 +280,7 @@ export default function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+971 XX XXX XXXX"
-                    className="h-12 rounded-xl border-border/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all duration-300"
+                    className="h-12 sm:h-12 text-base rounded-xl border-border/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all duration-300"
                   />
                 </div>
 
@@ -295,8 +295,8 @@ export default function Contact() {
                     onChange={handleChange}
                     placeholder="Tell us about your business and how we can help..."
                     required
-                    rows={6}
-                    className="rounded-xl border-border/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20 resize-none transition-all duration-300"
+                    rows={5}
+                    className="text-base rounded-xl border-border/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20 resize-none transition-all duration-300 min-h-[120px]"
                   />
                 </div>
 
@@ -304,7 +304,7 @@ export default function Contact() {
                   type="submit"
                   variant="hero"
                   size="lg"
-                  className="w-full"
+                  className="w-full min-h-[48px]"
                   disabled={isSubmitting || isSubmitted}
                 >
                   {isSubmitted ? (

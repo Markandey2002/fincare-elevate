@@ -109,7 +109,7 @@ export default function HowItWorks() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-[50vh] flex items-center overflow-hidden pt-20">
+      <section ref={heroRef} className="relative min-h-[50vh] sm:min-h-[60vh] flex items-center overflow-hidden pt-16 sm:pt-18 md:pt-20">
         {/* Background Image - Professional visible */}
         <div className="absolute inset-0">
           <OptimizedImage
@@ -132,20 +132,20 @@ export default function HowItWorks() {
           />
         </div>
 
-        <div className="container-custom relative z-10 py-20">
+        <div className="container-custom relative z-10 py-12 sm:py-16 md:py-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
             className="max-w-3xl"
           >
-            <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-sm font-medium mb-6">
+            <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-xs sm:text-sm font-medium mb-4 sm:mb-6">
               Our Process
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight px-2 sm:px-0">
               Simple Steps to <span className="text-gradient">Financial Success</span>
             </h1>
-            <p className="text-xl text-white/70 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-white/70 leading-relaxed px-2 sm:px-0">
               We've designed a clear, efficient process to take you from initial consultation 
               to achieving your financial goals. Here's what to expect.
             </p>

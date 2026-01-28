@@ -90,7 +90,7 @@ export function HowItWorksSection() {
           {/* Connection line - desktop */}
           <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-secondary/30 to-transparent -translate-y-1/2" />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
@@ -100,7 +100,7 @@ export function HowItWorksSection() {
                 className="relative group"
               >
                 {/* Step card */}
-                <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-500 hover:-translate-y-2 overflow-hidden relative">
+                <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 sm:p-6 hover:bg-white/10 transition-all duration-500 hover:-translate-y-2 overflow-hidden relative">
                   {/* Background Image */}
                   <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
                     <OptimizedImage

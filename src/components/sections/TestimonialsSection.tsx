@@ -98,17 +98,17 @@ export function TestimonialsSection() {
           className="relative max-w-4xl mx-auto"
         >
           {/* Main testimonial card */}
-          <div className="card-premium p-8 lg:p-12 relative">
+          <div className="card-premium p-6 sm:p-8 lg:p-12 relative">
             {/* Quote icon */}
-            <div className="absolute -top-6 left-8 w-12 h-12 bg-gradient-to-br from-secondary to-cyan rounded-2xl flex items-center justify-center shadow-lg">
-              <Quote className="w-6 h-6 text-white" />
+            <div className="absolute -top-4 sm:-top-6 left-4 sm:left-8 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-secondary to-cyan rounded-2xl flex items-center justify-center shadow-lg">
+              <Quote className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
 
-            <div className="pt-6">
+            <div className="pt-4 sm:pt-6">
               {/* Stars */}
-              <div className="flex items-center gap-1 mb-6">
+              <div className="flex items-center gap-1 mb-4 sm:mb-6">
                 {[...Array(testimonials[activeIndex].rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-gold text-gold" />
+                  <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-gold text-gold" />
                 ))}
               </div>
 
@@ -119,7 +119,7 @@ export function TestimonialsSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
-                className="text-xl lg:text-2xl text-primary font-medium leading-relaxed mb-8"
+                className="text-lg sm:text-xl lg:text-2xl text-primary font-medium leading-relaxed mb-6 sm:mb-8"
               >
                 "{testimonials[activeIndex].content}"
               </motion.p>

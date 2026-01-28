@@ -56,8 +56,8 @@ export function CTASection() {
           </div>
 
           {/* Content */}
-          <div className="relative px-8 py-16 lg:px-16 lg:py-20">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="relative px-4 sm:px-8 py-12 sm:py-16 lg:px-16 lg:py-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
               {/* Text content */}
               <div>
                 <motion.h2
@@ -81,15 +81,15 @@ export function CTASection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.4 }}
-                  className="flex flex-col sm:flex-row gap-4"
+                  className="flex flex-col sm:flex-row gap-3 sm:gap-4"
                 >
-                  <Button variant="hero" size="lg" asChild>
-                    <Link to="/contact" className="flex items-center gap-2">
+                  <Button variant="hero" size="lg" className="min-h-[48px] w-full sm:w-auto" asChild>
+                    <Link to="/contact" className="flex items-center justify-center gap-2">
                       Get Started Today
                       <ArrowRight className="w-5 h-5" />
                     </Link>
                   </Button>
-                  <Button variant="heroOutline" size="lg" asChild>
+                  <Button variant="heroOutline" size="lg" className="min-h-[48px] w-full sm:w-auto" asChild>
                     <Link to="/services">Explore Services</Link>
                   </Button>
                 </motion.div>

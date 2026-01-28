@@ -31,15 +31,15 @@ const values = [
 ];
 
 const timeline = [
-  { year: "2016", title: "Founded", description: "Established in Ajman Free Zone, UAE" },
-  { year: "2018", title: "Expansion", description: "Expanded services to include investment planning" },
-  { year: "2020", title: "Growth", description: "Reached 100+ satisfied clients milestone" },
-  { year: "2022", title: "Recognition", description: "Recognized as leading SME financial advisor" },
-  { year: "2024", title: "Innovation", description: "Launched digital-first advisory platform" },
+  { year: "2022", title: "Founded", description: "Established in Ajman Free Zone, UAE" },
+  { year: "2023", title: "Expansion", description: "Expanded services to include investment planning" },
+  { year: "2024", title: "Growth", description: "Reached 100+ satisfied clients milestone" },
+  { year: "2025", title: "Recognition", description: "Recognized as leading SME financial advisor" },
+  { year: "2026", title: "Innovation", description: "Launched digital-first advisory platform" },
 ];
 
 const stats = [
-  { value: 8, suffix: "+", label: "Years of Excellence" },
+  { value: 2, suffix: "+", label: "Years of Excellence" },
   { value: 150, suffix: "+", label: "Clients Served" },
   { value: 50, prefix: "AED ", suffix: "M+", label: "Funding Facilitated" },
   { value: 94, suffix: "%", label: "Client Satisfaction" },
@@ -59,7 +59,7 @@ export default function About() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-[60vh] flex items-center overflow-hidden pt-20">
+      <section ref={heroRef} className="relative min-h-[50vh] sm:min-h-[60vh] flex items-center overflow-hidden pt-16 sm:pt-18 md:pt-20">
         {/* Background Image */}
         <div className="absolute inset-0">
           <OptimizedImage
@@ -82,20 +82,20 @@ export default function About() {
           />
         </div>
 
-        <div className="container-custom relative z-10 py-20">
+        <div className="container-custom relative z-10 py-12 sm:py-16 md:py-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
             className="max-w-3xl"
           >
-            <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-sm font-medium mb-6">
+            <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-xs sm:text-sm font-medium mb-4 sm:mb-6">
               About Us
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight px-2 sm:px-0">
               Building Trust, <span className="text-gradient">Delivering Results</span>
             </h1>
-            <p className="text-xl text-white/70 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-white/70 leading-relaxed px-2 sm:px-0">
               We are FINCARE SOLUTIONS FZE LLC, a UAE-registered financial services company 
               dedicated to empowering businesses with smart financial solutions.
             </p>
@@ -172,7 +172,7 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Founded in 2016 in Ajman Free Zone, FINCARE SOLUTIONS FZE LLC was born 
+                  Founded in 2022 in Ajman Free Zone, FINCARE SOLUTIONS FZE LLC was born 
                   from a vision to democratize access to quality financial services for 
                   businesses of all sizes in the UAE and GCC region.
                 </p>
@@ -311,12 +311,13 @@ export default function About() {
                 <div className="relative">
                   <div className="relative w-full aspect-square rounded-2xl overflow-hidden ring-4 ring-secondary/20">
                     <OptimizedImage
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&q=80"
+                      src="/prateek-choudhary.jpg"
                       alt="Mr. Prateek Choudhary, Managing Director"
                       className="w-full h-full"
                       objectFit="cover"
                       width={300}
                       height={300}
+                      priority={true}
                     />
                     <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-cyan/20" />
                   </div>
@@ -347,115 +348,6 @@ export default function About() {
               </div>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Team Section - Real Person Photos */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={valuesInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5 }}
-              className="inline-block px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-semibold mb-4"
-            >
-              Our Team
-            </motion.span>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={valuesInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-3xl sm:text-4xl font-bold text-foreground mb-6"
-            >
-              Expert Financial Professionals
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={valuesInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg text-muted-foreground"
-            >
-              Meet the experienced professionals dedicated to your financial success
-            </motion.p>
-          </div>
-
-          {/* Team Grid - Similar to fundify.ae style */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-            {[
-              {
-                name: "Mr. Prateek Choudhary",
-                role: "Managing Director",
-                photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&q=80",
-                description: "15+ years in financial services and strategic advisory"
-              },
-              {
-                name: "Sarah Al-Mansoori",
-                role: "Senior Financial Advisor",
-                photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&q=80",
-                description: "Expert in UAE market regulations and business funding"
-              },
-              {
-                name: "Ahmed Hassan",
-                role: "Investment Strategist",
-                photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&q=80",
-                description: "Specialized in portfolio management and wealth planning"
-              },
-              {
-                name: "Fatima Al-Zahra",
-                role: "SME Consultant",
-                photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&q=80",
-                description: "Helping small businesses scale with smart financial solutions"
-              },
-              {
-                name: "Mohammed Al-Rashid",
-                role: "Corporate Finance Specialist",
-                photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&q=80",
-                description: "Expert in corporate restructuring and financial optimization"
-              },
-              {
-                name: "Layla Al-Mazrouei",
-                role: "Client Relations Manager",
-                photo: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop&q=80",
-                description: "Ensuring exceptional client experience and satisfaction"
-              },
-            ].map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={valuesInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.1 * index }}
-                className="group text-center"
-              >
-                {/* Photo - Similar to fundify.ae alignment */}
-                <div className="relative mb-6 mx-auto w-48 h-48 lg:w-56 lg:h-56">
-                  <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-cyan/20 rounded-2xl transform rotate-3 group-hover:rotate-6 transition-transform duration-300" />
-                  <div className="relative w-full h-full rounded-2xl overflow-hidden ring-4 ring-white shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                    <OptimizedImage
-                      src={member.photo}
-                      alt={member.name}
-                      className="w-full h-full"
-                      objectFit="cover"
-                      width={224}
-                      height={224}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                </div>
-                
-                {/* Info */}
-                <h3 className="text-xl font-bold text-foreground mb-1">
-                  {member.name}
-                </h3>
-                <p className="text-secondary font-semibold mb-2">
-                  {member.role}
-                </p>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {member.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 

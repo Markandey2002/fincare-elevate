@@ -24,7 +24,7 @@ export function FloatingCTA() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-6 right-6 z-50"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50"
         >
           <AnimatePresence mode="wait">
             {isExpanded ? (
@@ -33,11 +33,11 @@ export function FloatingCTA() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                className="bg-white rounded-2xl shadow-[var(--shadow-lg)] border border-border p-6 w-72"
+                className="bg-white rounded-2xl shadow-[var(--shadow-lg)] border border-border p-4 sm:p-6 w-[calc(100vw-2rem)] sm:w-72 max-w-sm"
               >
                 <button
                   onClick={() => setIsExpanded(false)}
-                  className="absolute top-3 right-3 p-1 rounded-lg hover:bg-muted transition-colors"
+                  className="absolute top-3 right-3 p-2 min-w-[44px] min-h-[44px] rounded-lg active:bg-muted transition-colors flex items-center justify-center"
                 >
                   <X className="w-4 h-4 text-muted-foreground" />
                 </button>
@@ -56,7 +56,7 @@ export function FloatingCTA() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 onClick={() => setIsExpanded(true)}
-                className="w-14 h-14 rounded-full bg-gradient-to-r from-secondary to-cyan shadow-[var(--shadow-glow)] hover:shadow-[0_0_40px_-8px_hsla(168,76%,36%,0.6)] flex items-center justify-center transition-all duration-300 hover:-translate-y-1 animate-pulse-glow"
+                className="w-14 h-14 min-w-[56px] min-h-[56px] rounded-full bg-gradient-to-r from-secondary to-cyan shadow-[var(--shadow-glow)] active:shadow-[0_0_40px_-8px_hsla(168,76%,36%,0.6)] flex items-center justify-center transition-all duration-300 active:-translate-y-1 animate-pulse-glow"
               >
                 <MessageCircle className="w-6 h-6 text-white" />
               </motion.button>

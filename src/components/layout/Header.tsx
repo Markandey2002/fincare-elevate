@@ -43,17 +43,17 @@ export function Header() {
         }`}
       >
         <div className="container-custom">
-          <nav className="flex items-center justify-between h-20">
+          <nav className="flex items-center justify-between h-16 sm:h-18 md:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group z-50 relative">
-              <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-secondary to-cyan flex items-center justify-center shadow-[var(--shadow-glow)] group-hover:shadow-[0_0_30px_-5px_hsla(168,76%,36%,0.6)] transition-shadow duration-300">
-                <span className="text-white font-bold text-lg">F</span>
+            <Link to="/" className="flex items-center gap-2 sm:gap-3 group z-50 relative">
+              <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-secondary to-cyan flex items-center justify-center shadow-[var(--shadow-glow)] group-hover:shadow-[0_0_30px_-5px_hsla(168,76%,36%,0.6)] transition-shadow duration-300">
+                <span className="text-white font-bold text-sm sm:text-lg">F</span>
               </div>
               <div className="flex flex-col">
-                <span className={`font-bold text-lg tracking-tight transition-colors ${isScrolled ? 'text-primary' : 'text-white'}`}>
+                <span className={`font-bold text-sm sm:text-base md:text-lg tracking-tight transition-colors ${isScrolled ? 'text-primary' : 'text-white'}`}>
                   FINCARE
                 </span>
-                <span className={`text-[10px] font-medium tracking-widest transition-colors ${isScrolled ? 'text-muted-foreground' : 'text-white/80'}`}>
+                <span className={`text-[8px] sm:text-[9px] md:text-[10px] font-medium tracking-widest transition-colors ${isScrolled ? 'text-muted-foreground' : 'text-white/80'}`}>
                   SOLUTIONS
                 </span>
               </div>
@@ -96,10 +96,10 @@ export function Header() {
               </Button>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Touch friendly */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+              className="lg:hidden p-2.5 min-w-[44px] min-h-[44px] rounded-lg hover:bg-muted active:bg-muted transition-colors flex items-center justify-center"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
@@ -120,10 +120,10 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-x-0 top-20 z-40 lg:hidden"
+            className="fixed inset-x-0 top-16 sm:top-18 md:top-20 z-40 lg:hidden"
           >
-            <div className="bg-white/95 backdrop-blur-xl border-b border-border shadow-[var(--shadow-lg)] mx-4 rounded-2xl overflow-hidden">
-              <div className="p-6 space-y-2">
+            <div className="bg-white/95 backdrop-blur-xl border-b border-border shadow-[var(--shadow-lg)] mx-3 sm:mx-4 rounded-2xl overflow-hidden">
+              <div className="p-4 sm:p-6 space-y-1 sm:space-y-2">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.path}
@@ -133,10 +133,10 @@ export function Header() {
                   >
                     <Link
                       to={link.path}
-                      className={`block px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
+                      className={`block px-4 py-3.5 sm:py-3 min-h-[44px] rounded-xl font-medium transition-all duration-300 flex items-center ${
                         location.pathname === link.path
                           ? "bg-secondary/10 text-secondary"
-                          : "text-foreground hover:bg-muted"
+                          : "text-foreground active:bg-muted"
                       }`}
                     >
                       {link.name}
@@ -147,9 +147,9 @@ export function Header() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navLinks.length * 0.05 }}
-                  className="pt-4"
+                  className="pt-3 sm:pt-4"
                 >
-                  <Button variant="hero" size="lg" className="w-full" asChild>
+                  <Button variant="hero" size="lg" className="w-full min-h-[48px]" asChild>
                     <Link to="/contact">Get Started</Link>
                   </Button>
                 </motion.div>

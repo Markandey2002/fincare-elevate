@@ -12,7 +12,7 @@ const trustIndicators = [
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
+    <section className="relative min-h-[70vh] sm:min-h-[80vh] md:min-h-screen flex items-center overflow-hidden pt-16 sm:pt-18 md:pt-20">
       {/* Full-Width Background Image - Professional with tablet */}
       <div className="absolute inset-0">
         <OptimizedImage
@@ -65,8 +65,8 @@ export function HeroSection() {
         }}
       />
 
-      <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="container-custom relative z-10 py-8 sm:py-12 md:py-16">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
           {/* Content */}
           <div className="text-center lg:text-left">
             {/* Badge */}
@@ -74,10 +74,10 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8"
+              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6 sm:mb-8"
             >
-              <Sparkles className="w-4 h-4 text-gold" />
-              <span className="text-sm text-white/90 font-medium">UAE's Trusted Financial Partner</span>
+              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gold" />
+              <span className="text-xs sm:text-sm text-white/90 font-medium">UAE's Trusted Financial Partner</span>
             </motion.div>
 
             {/* Heading */}
@@ -85,7 +85,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-4 sm:mb-6"
             >
               Smart Financial{" "}
               <span className="text-gradient">Solutions</span>{" "}
@@ -97,7 +97,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-lg sm:text-xl text-white/70 leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0"
+              className="text-base sm:text-lg md:text-xl text-white/70 leading-relaxed mb-8 sm:mb-10 max-w-xl mx-auto lg:mx-0 px-2 sm:px-0"
             >
               Empowering startups and SMEs across the UAE & GCC with expert funding assistance, 
               strategic advisory, and tailored financial solutions to accelerate your growth.
@@ -108,15 +108,15 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8 sm:mb-12"
             >
-              <Button variant="hero" size="lg" asChild>
-                <Link to="/contact" className="flex items-center gap-2">
+              <Button variant="hero" size="lg" className="min-h-[48px] w-full sm:w-auto" asChild>
+                <Link to="/contact" className="flex items-center justify-center gap-2">
                   Get Started
                   <ChevronRight className="w-5 h-5" />
                 </Link>
               </Button>
-              <Button variant="heroOutline" size="lg" asChild>
+              <Button variant="heroOutline" size="lg" className="min-h-[48px] w-full sm:w-auto" asChild>
                 <Link to="/contact">Book a Consultation</Link>
               </Button>
             </motion.div>
@@ -126,12 +126,12 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="flex flex-wrap justify-center lg:justify-start gap-6"
+              className="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6"
             >
               {trustIndicators.map((item, index) => (
                 <div key={index} className="flex items-center gap-2 text-white/60">
-                  <item.icon className="w-5 h-5 text-secondary" />
-                  <span className="text-sm font-medium">{item.text}</span>
+                  <item.icon className="w-4 h-4 sm:w-5 sm:h-5 text-secondary flex-shrink-0" />
+                  <span className="text-xs sm:text-sm font-medium">{item.text}</span>
                 </div>
               ))}
             </motion.div>

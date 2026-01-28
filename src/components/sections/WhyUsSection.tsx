@@ -102,15 +102,15 @@ export function WhyUsSection() {
           </motion.p>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+        {/* Bento Grid - Stack on mobile */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16 lg:mb-20">
           {features.map((feature, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 * index }}
-              className="group card-premium p-6 hover:border-secondary/30"
+              className="group card-premium p-5 sm:p-6 hover:border-secondary/30"
             >
               <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 transition-colors">
                 <feature.icon className="w-6 h-6 text-secondary" />
