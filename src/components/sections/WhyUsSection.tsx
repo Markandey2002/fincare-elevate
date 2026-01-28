@@ -11,6 +11,7 @@ import {
   TrendingUp
 } from "lucide-react";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { OptimizedImage } from "@/components/OptimizedImage";
 
 const features = [
   {
@@ -58,7 +59,20 @@ export function WhyUsSection() {
 
   return (
     <section ref={ref} className="section-padding relative overflow-hidden">
-      <div className="container-custom">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <OptimizedImage
+          src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&h=1200&fit=crop&q=80"
+          alt="Abstract fintech and business growth visualization"
+          className="w-full h-full"
+          objectFit="cover"
+        />
+        {/* Low opacity + gradient mask */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/80" />
+      </div>
+      
+      <div className="container-custom relative z-10">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.span
@@ -116,12 +130,22 @@ export function WhyUsSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="relative"
+          className="relative rounded-3xl overflow-hidden"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-primary via-[hsl(220,50%,15%)] to-primary rounded-3xl" />
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary/10 to-cyan/10 rounded-3xl" />
+          {/* Background Image */}
+          <div className="absolute inset-0 opacity-10">
+            <OptimizedImage
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=400&fit=crop&q=80"
+              alt="Business growth and success metrics"
+              className="w-full h-full"
+              objectFit="cover"
+            />
+          </div>
           
-          <div className="relative grid grid-cols-2 lg:grid-cols-4 gap-8 p-8 lg:p-12">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary via-[hsl(220,50%,15%)] to-primary" />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 to-cyan/20" />
+          
+          <div className="relative grid grid-cols-2 lg:grid-cols-4 gap-8 p-8 lg:p-12 z-10">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="flex items-center justify-center gap-1 text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-2">

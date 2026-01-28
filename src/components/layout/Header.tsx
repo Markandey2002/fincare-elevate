@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/Logo";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -44,15 +45,15 @@ export function Header() {
         <div className="container-custom">
           <nav className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
+            <Link to="/" className="flex items-center gap-3 group z-50 relative">
               <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-secondary to-cyan flex items-center justify-center shadow-[var(--shadow-glow)] group-hover:shadow-[0_0_30px_-5px_hsla(168,76%,36%,0.6)] transition-shadow duration-300">
                 <span className="text-white font-bold text-lg">F</span>
               </div>
               <div className="flex flex-col">
-                <span className={`font-bold text-lg tracking-tight transition-colors ${isScrolled ? 'text-primary' : 'text-primary'}`}>
+                <span className={`font-bold text-lg tracking-tight transition-colors ${isScrolled ? 'text-primary' : 'text-white'}`}>
                   FINCARE
                 </span>
-                <span className={`text-[10px] font-medium tracking-widest transition-colors ${isScrolled ? 'text-muted-foreground' : 'text-muted-foreground'}`}>
+                <span className={`text-[10px] font-medium tracking-widest transition-colors ${isScrolled ? 'text-muted-foreground' : 'text-white/80'}`}>
                   SOLUTIONS
                 </span>
               </div>

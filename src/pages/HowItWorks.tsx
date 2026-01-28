@@ -14,6 +14,7 @@ import {
   Sparkles
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { OptimizedImage } from "@/components/OptimizedImage";
 
 const steps = [
   {
@@ -22,6 +23,7 @@ const steps = [
     title: "Initial Consultation",
     description: "Everything starts with a conversation. Schedule a free, no-obligation consultation where we listen to your business goals, challenges, and financial needs. This helps us understand your unique situation.",
     duration: "30-60 minutes",
+    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=400&fit=crop&q=80",
     details: [
       "Understand your business model",
       "Identify immediate financial needs",
@@ -35,6 +37,7 @@ const steps = [
     title: "Comprehensive Analysis",
     description: "Our team conducts thorough due diligence and analysis of your business. We examine financial statements, market position, growth potential, and identify opportunities for optimization.",
     duration: "3-5 business days",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop&q=80",
     details: [
       "Financial health assessment",
       "Market and competitor analysis",
@@ -48,6 +51,7 @@ const steps = [
     title: "Custom Strategy Design",
     description: "Based on our analysis, we develop a tailored financial strategy. You'll receive detailed proposals with clear action plans, timelines, expected outcomes, and transparent pricing.",
     duration: "5-7 business days",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop&q=80",
     details: [
       "Customized solution design",
       "Detailed implementation roadmap",
@@ -61,6 +65,7 @@ const steps = [
     title: "Implementation & Growth",
     description: "Once you approve the strategy, we execute with precision. Our team handles the heavy lifting while keeping you informed at every step. We celebrate your wins and adjust strategies as needed.",
     duration: "Ongoing support",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop&q=80",
     details: [
       "Expert execution of strategy",
       "Regular progress updates",
@@ -105,7 +110,20 @@ export default function HowItWorks() {
     <Layout>
       {/* Hero Section */}
       <section ref={heroRef} className="relative min-h-[50vh] flex items-center overflow-hidden pt-20">
-        <div className="absolute inset-0 hero-gradient" />
+        {/* Background Image - Professional visible */}
+        <div className="absolute inset-0">
+          <OptimizedImage
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1080&fit=crop&q=80"
+            alt="Professional financial planning process"
+            className="w-full h-full"
+            objectFit="cover"
+            priority={true}
+          />
+          {/* Lighter overlay - more image visible */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/65 to-[hsl(220,50%,25%)]/70" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-secondary/5 to-cyan/10" />
+        </div>
+        
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
             animate={{ x: [0, 50, 0], y: [0, -30, 0] }}
@@ -138,8 +156,19 @@ export default function HowItWorks() {
       </section>
 
       {/* Steps Section */}
-      <section ref={stepsRef} className="section-padding">
-        <div className="container-custom">
+      <section ref={stepsRef} className="section-padding relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <OptimizedImage
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&h=1200&fit=crop&q=80"
+            alt="Abstract process and workflow"
+            className="w-full h-full"
+            objectFit="cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
+        </div>
+        
+        <div className="container-custom relative z-10">
           <div className="space-y-0">
             {steps.map((step, index) => (
               <motion.div
@@ -169,17 +198,28 @@ export default function HowItWorks() {
                   </div>
 
                   {/* Content */}
-                  <div className="card-glass p-8 lg:p-10">
-                    <div className="flex flex-wrap items-center gap-4 mb-4">
-                      <span className="hidden lg:inline text-6xl font-bold text-muted/10">{step.number}</span>
-                      <div>
-                        <h2 className="text-2xl sm:text-3xl font-bold text-foreground">{step.title}</h2>
-                        <div className="flex items-center gap-2 mt-2">
-                          <Clock className="w-4 h-4 text-secondary" />
-                          <span className="text-sm text-muted-foreground">{step.duration}</span>
+                  <div className="card-glass p-8 lg:p-10 relative overflow-hidden">
+                    {/* Background Image */}
+                    <div className="absolute inset-0 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-500">
+                      <OptimizedImage
+                        src={step.image}
+                        alt={step.title}
+                        className="w-full h-full"
+                        objectFit="cover"
+                      />
+                    </div>
+                    
+                    <div className="relative z-10">
+                      <div className="flex flex-wrap items-center gap-4 mb-4">
+                        <span className="hidden lg:inline text-6xl font-bold text-muted/10">{step.number}</span>
+                        <div>
+                          <h2 className="text-2xl sm:text-3xl font-bold text-foreground">{step.title}</h2>
+                          <div className="flex items-center gap-2 mt-2">
+                            <Clock className="w-4 h-4 text-secondary" />
+                            <span className="text-sm text-muted-foreground">{step.duration}</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
 
                     <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                       {step.description}
@@ -192,6 +232,7 @@ export default function HowItWorks() {
                           <span className="text-sm text-foreground">{detail}</span>
                         </div>
                       ))}
+                    </div>
                     </div>
                   </div>
                 </div>

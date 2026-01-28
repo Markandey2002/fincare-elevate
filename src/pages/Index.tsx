@@ -10,10 +10,15 @@ const Index = () => {
   return (
     <Layout>
       <HeroSection />
+      <div className="section-separator" />
       <ServicesSection />
+      <div className="section-separator" />
       <WhyUsSection />
+      <div className="section-separator" />
       <HowItWorksSection />
+      <div className="section-separator" />
       <TestimonialsSection />
+      <div className="section-separator" />
       <CTASection />
     </Layout>
   );

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ChevronRight, Shield, TrendingUp, Award, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { OptimizedImage } from "@/components/OptimizedImage";
 
 const trustIndicators = [
   { icon: Shield, text: "UAE Registered" },
@@ -12,8 +13,20 @@ const trustIndicators = [
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
-      {/* Background */}
-      <div className="absolute inset-0 hero-gradient" />
+      {/* Full-Width Background Image - Professional with tablet */}
+      <div className="absolute inset-0">
+        <OptimizedImage
+          src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1080&fit=crop&q=80"
+          alt="Professional financial consultant with tablet"
+          className="w-full h-full"
+          objectFit="cover"
+          priority={true}
+        />
+        {/* Lighter gradient overlay - more image visible */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/60 to-[hsl(220,50%,25%)]/70" />
+        {/* Teal accent overlay - subtle */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-secondary/5 to-cyan/10" />
+      </div>
       
       {/* Animated gradient orbs */}
       <div className="absolute inset-0 overflow-hidden">
@@ -131,6 +144,20 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative hidden lg:block"
           >
+            {/* Background Hero Image */}
+            <div className="absolute inset-0 -z-10 rounded-3xl overflow-hidden">
+              <OptimizedImage
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&q=80"
+                alt="Modern business growth and financial innovation"
+                className="rounded-3xl"
+                objectFit="cover"
+                overlay={true}
+                overlayGradient="from-primary/80 via-primary/40 to-transparent"
+                priority={true}
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 via-transparent to-cyan/20" />
+            </div>
+
             {/* Abstract visual container */}
             <div className="relative">
               {/* Main card */}

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Target, Eye, Heart, Award, Users, TrendingUp, Globe, Shield, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { OptimizedImage } from "@/components/OptimizedImage";
 
 const values = [
   {
@@ -59,7 +60,20 @@ export default function About() {
     <Layout>
       {/* Hero Section */}
       <section ref={heroRef} className="relative min-h-[60vh] flex items-center overflow-hidden pt-20">
-        <div className="absolute inset-0 hero-gradient" />
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <OptimizedImage
+            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1920&h=1080&fit=crop&q=80"
+            alt="Professional business team and corporate environment"
+            className="w-full h-full"
+            objectFit="cover"
+            priority={true}
+          />
+          {/* Dark gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-[hsl(220,50%,20%)]" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-secondary/10 to-cyan/20" />
+        </div>
+        
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
             animate={{ x: [0, 50, 0], y: [0, -30, 0] }}
@@ -118,14 +132,37 @@ export default function About() {
         </div>
       </section>
 
-      {/* Our Story */}
-      <section ref={storyRef} className="section-padding">
+      {/* Our Story - Split Layout with Professional Image */}
+      <section ref={storyRef} className="section-padding relative overflow-hidden bg-background">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Professional Image - Left Side */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               animate={storyInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
+              className="relative order-2 lg:order-1"
+            >
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <OptimizedImage
+                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=1000&fit=crop&q=80"
+                  alt="Professional business consultant"
+                  className="w-full h-full"
+                  objectFit="cover"
+                  width={600}
+                  height={800}
+                />
+                {/* Subtle overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-transparent to-cyan/10" />
+              </div>
+            </motion.div>
+
+            {/* Content - Right Side */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={storyInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="order-1 lg:order-2"
             >
               <span className="inline-block px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-semibold mb-4">
                 Our Story
@@ -158,7 +195,17 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="grid grid-cols-2 gap-4">
+              {/* Background Story Image */}
+              <div className="absolute inset-0 rounded-3xl overflow-hidden opacity-10">
+                <OptimizedImage
+                  src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop&q=80"
+                  alt="Business growth and success"
+                  className="w-full h-full rounded-3xl"
+                  objectFit="cover"
+                />
+              </div>
+              
+              <div className="grid grid-cols-2 gap-4 relative z-10">
                 <div className="space-y-4">
                   <div className="bg-gradient-to-br from-secondary/10 to-cyan/10 rounded-3xl p-6 h-48 flex flex-col justify-end">
                     <Shield className="w-10 h-10 text-secondary mb-3" />
@@ -226,6 +273,188 @@ export default function About() {
                 ambitious enterprise has access to world-class financial guidance.
               </p>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership Team */}
+      <section className="section-padding bg-muted/30">
+        <div className="container-custom">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={valuesInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5 }}
+              className="inline-block px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-semibold mb-4"
+            >
+              Leadership
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={valuesInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-3xl sm:text-4xl font-bold text-foreground mb-6"
+            >
+              Meet Our Managing Director
+            </motion.h2>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={valuesInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="card-premium p-8 lg:p-12">
+              <div className="grid md:grid-cols-[300px_1fr] gap-8 items-center">
+                {/* Professional Portrait */}
+                <div className="relative">
+                  <div className="relative w-full aspect-square rounded-2xl overflow-hidden ring-4 ring-secondary/20">
+                    <OptimizedImage
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&q=80"
+                      alt="Mr. Prateek Choudhary, Managing Director"
+                      className="w-full h-full"
+                      objectFit="cover"
+                      width={300}
+                      height={300}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-cyan/20" />
+                  </div>
+                  {/* Decorative elements */}
+                  <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-secondary to-cyan rounded-2xl opacity-20 blur-xl" />
+                </div>
+
+                {/* Content */}
+                <div>
+                  <h3 className="text-3xl font-bold text-foreground mb-2">
+                    Mr. Prateek Choudhary
+                  </h3>
+                  <p className="text-xl text-secondary font-semibold mb-4">
+                    Managing Director
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    With over 15 years of experience in financial services and business advisory, 
+                    Mr. Prateek Choudhary leads FINCARE SOLUTIONS FZE LLC with a vision to 
+                    democratize access to quality financial services across the UAE and GCC region.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    His expertise spans business funding, financial restructuring, and strategic 
+                    advisory, having helped hundreds of businesses achieve their growth objectives. 
+                    Under his leadership, the company has facilitated over AED 50 million in 
+                    funding and maintained a 94% client satisfaction rate.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Team Section - Real Person Photos */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={valuesInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5 }}
+              className="inline-block px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-semibold mb-4"
+            >
+              Our Team
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={valuesInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-3xl sm:text-4xl font-bold text-foreground mb-6"
+            >
+              Expert Financial Professionals
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={valuesInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-lg text-muted-foreground"
+            >
+              Meet the experienced professionals dedicated to your financial success
+            </motion.p>
+          </div>
+
+          {/* Team Grid - Similar to fundify.ae style */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+            {[
+              {
+                name: "Mr. Prateek Choudhary",
+                role: "Managing Director",
+                photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&q=80",
+                description: "15+ years in financial services and strategic advisory"
+              },
+              {
+                name: "Sarah Al-Mansoori",
+                role: "Senior Financial Advisor",
+                photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&q=80",
+                description: "Expert in UAE market regulations and business funding"
+              },
+              {
+                name: "Ahmed Hassan",
+                role: "Investment Strategist",
+                photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&q=80",
+                description: "Specialized in portfolio management and wealth planning"
+              },
+              {
+                name: "Fatima Al-Zahra",
+                role: "SME Consultant",
+                photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&q=80",
+                description: "Helping small businesses scale with smart financial solutions"
+              },
+              {
+                name: "Mohammed Al-Rashid",
+                role: "Corporate Finance Specialist",
+                photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&q=80",
+                description: "Expert in corporate restructuring and financial optimization"
+              },
+              {
+                name: "Layla Al-Mazrouei",
+                role: "Client Relations Manager",
+                photo: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop&q=80",
+                description: "Ensuring exceptional client experience and satisfaction"
+              },
+            ].map((member, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={valuesInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+                className="group text-center"
+              >
+                {/* Photo - Similar to fundify.ae alignment */}
+                <div className="relative mb-6 mx-auto w-48 h-48 lg:w-56 lg:h-56">
+                  <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-cyan/20 rounded-2xl transform rotate-3 group-hover:rotate-6 transition-transform duration-300" />
+                  <div className="relative w-full h-full rounded-2xl overflow-hidden ring-4 ring-white shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                    <OptimizedImage
+                      src={member.photo}
+                      alt={member.name}
+                      className="w-full h-full"
+                      objectFit="cover"
+                      width={224}
+                      height={224}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                </div>
+                
+                {/* Info */}
+                <h3 className="text-xl font-bold text-foreground mb-1">
+                  {member.name}
+                </h3>
+                <p className="text-secondary font-semibold mb-2">
+                  {member.role}
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {member.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

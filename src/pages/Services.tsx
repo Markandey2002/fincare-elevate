@@ -13,6 +13,7 @@ import {
   Briefcase
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { OptimizedImage } from "@/components/OptimizedImage";
 
 const services = [
   {
@@ -27,6 +28,7 @@ const services = [
       "Invoice factoring and working capital loans",
     ],
     gradient: "from-secondary to-cyan",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80",
   },
   {
     icon: LineChart,
@@ -40,6 +42,7 @@ const services = [
       "M&A advisory and due diligence",
     ],
     gradient: "from-cyan to-blue-500",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=80",
   },
   {
     icon: Building2,
@@ -53,6 +56,7 @@ const services = [
       "Growth roadmap development",
     ],
     gradient: "from-gold to-orange-400",
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop&q=80",
   },
   {
     icon: PiggyBank,
@@ -66,6 +70,7 @@ const services = [
       "Alternative investment opportunities",
     ],
     gradient: "from-purple-500 to-pink-500",
+    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&h=400&fit=crop&q=80",
   },
   {
     icon: FileSpreadsheet,
@@ -79,6 +84,7 @@ const services = [
       "Transfer pricing strategies",
     ],
     gradient: "from-secondary to-teal-400",
+    image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=600&h=400&fit=crop&q=80",
   },
   {
     icon: Briefcase,
@@ -92,6 +98,7 @@ const services = [
       "Office space solutions",
     ],
     gradient: "from-emerald-500 to-green-400",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop&q=80",
   },
 ];
 
@@ -105,7 +112,20 @@ export default function Services() {
     <Layout>
       {/* Hero Section */}
       <section ref={heroRef} className="relative min-h-[50vh] flex items-center overflow-hidden pt-20">
-        <div className="absolute inset-0 hero-gradient" />
+        {/* Background Image - Professional visible */}
+        <div className="absolute inset-0">
+          <OptimizedImage
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1080&fit=crop&q=80"
+            alt="Professional financial services consultant"
+            className="w-full h-full"
+            objectFit="cover"
+            priority={true}
+          />
+          {/* Lighter overlay - more image visible */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/65 to-[hsl(220,50%,25%)]/70" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-secondary/5 to-cyan/10" />
+        </div>
+        
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
             animate={{ x: [0, 50, 0], y: [0, -30, 0] }}
@@ -182,7 +202,18 @@ export default function Services() {
                 <div className={index % 2 === 1 ? "lg:order-1" : ""}>
                   <div className="relative">
                     <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-10 rounded-3xl blur-2xl`} />
-                    <div className="relative card-glass p-8 lg:p-12">
+                    <div className="relative card-glass p-8 lg:p-12 overflow-hidden">
+                      {/* Service Image */}
+                      <div className="absolute inset-0 opacity-10 group-hover:opacity-15 transition-opacity duration-500">
+                        <OptimizedImage
+                          src={service.image}
+                          alt={service.title}
+                          className="w-full h-full"
+                          objectFit="cover"
+                        />
+                      </div>
+                      <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-5`} />
+                      <div className="relative z-10">
                       <div className="grid grid-cols-2 gap-4">
                         <div className="bg-white/50 rounded-2xl p-6 text-center">
                           <div className="text-3xl font-bold text-primary mb-1">100%</div>
@@ -196,6 +227,7 @@ export default function Services() {
                           <div className="text-3xl font-bold text-gradient mb-1">Expert Team</div>
                           <div className="text-sm text-muted-foreground">Dedicated professionals at your service</div>
                         </div>
+                      </div>
                       </div>
                     </div>
                   </div>

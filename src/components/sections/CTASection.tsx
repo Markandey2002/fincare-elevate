@@ -3,6 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { OptimizedImage } from "@/components/OptimizedImage";
 
 export function CTASection() {
   const ref = useRef(null);
@@ -17,8 +18,16 @@ export function CTASection() {
           transition={{ duration: 0.6 }}
           className="relative"
         >
-          {/* Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary via-[hsl(220,50%,15%)] to-[hsl(200,50%,18%)] rounded-3xl overflow-hidden">
+          {/* Background Image - Professional with visible person */}
+          <div className="absolute inset-0 rounded-3xl overflow-hidden">
+            <OptimizedImage
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=800&fit=crop&q=80"
+              alt="Professional financial consultant"
+              className="w-full h-full"
+              objectFit="cover"
+            />
+            {/* Lighter overlay - more image visible */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/75 via-[hsl(220,50%,20%)]/75 to-[hsl(200,50%,20%)]/75" />
             {/* Animated gradient orbs */}
             <motion.div
               animate={{

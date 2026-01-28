@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { OptimizedImage } from "@/components/OptimizedImage";
 
 const testimonials = [
   {
@@ -9,6 +10,7 @@ const testimonials = [
     content: "Fincare Solutions transformed our funding journey. Their expertise in UAE markets and personalized approach helped us secure the capital we needed to scale. Highly recommended!",
     rating: 5,
     image: "AR",
+    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80",
   },
   {
     name: "Sarah Mohammed",
@@ -16,6 +18,7 @@ const testimonials = [
     content: "The team's understanding of both traditional and innovative financing options was impressive. They found solutions we didn't know existed. True partners in growth.",
     rating: 5,
     image: "SM",
+    photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&q=80",
   },
   {
     name: "Michael Chen",
@@ -23,6 +26,7 @@ const testimonials = [
     content: "Professional, responsive, and results-driven. Fincare helped restructure our finances, improving cash flow by 40%. Their advisory services are invaluable.",
     rating: 5,
     image: "MC",
+    photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&q=80",
   },
   {
     name: "Fatima Al-Hassan",
@@ -30,6 +34,7 @@ const testimonials = [
     content: "As a startup founder, navigating UAE financial regulations was daunting. Fincare made it seamless and helped us focus on what we do best—building our business.",
     rating: 5,
     image: "FA",
+    photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&q=80",
   },
 ];
 
@@ -42,9 +47,18 @@ export function TestimonialsSection() {
   const prev = () => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section ref={ref} className="section-padding bg-muted/30 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary/5 rounded-full blur-[150px]" />
+    <section ref={ref} className="section-padding relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <OptimizedImage
+          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1920&h=1200&fit=crop&q=80"
+          alt="Client success and testimonials"
+          className="w-full h-full"
+          objectFit="cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/92 via-background/88 to-background/92" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary/5 rounded-full blur-[150px]" />
+      </div>
 
       <div className="container-custom relative z-10">
         {/* Section header */}
@@ -61,7 +75,7 @@ export function TestimonialsSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-white"
           >
             What Our Clients Say
           </motion.h2>
@@ -69,7 +83,7 @@ export function TestimonialsSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg text-muted-foreground"
+            className="text-lg font-medium leading-relaxed text-white/90"
           >
             Don't just take our word for it. Here's what business leaders across the 
             UAE say about working with Fincare Solutions.
@@ -105,7 +119,7 @@ export function TestimonialsSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
-                className="text-xl lg:text-2xl text-foreground leading-relaxed mb-8"
+                className="text-xl lg:text-2xl text-primary font-medium leading-relaxed mb-8"
               >
                 "{testimonials[activeIndex].content}"
               </motion.p>
@@ -118,8 +132,17 @@ export function TestimonialsSection() {
                 transition={{ duration: 0.3, delay: 0.1 }}
                 className="flex items-center gap-4"
               >
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-secondary to-cyan flex items-center justify-center text-white font-bold text-lg">
-                  {testimonials[activeIndex].image}
+                <div className="relative w-16 h-16 rounded-full overflow-hidden ring-2 ring-secondary/20">
+                  <OptimizedImage
+                    src={testimonials[activeIndex].photo}
+                    alt={testimonials[activeIndex].name}
+                    className="w-full h-full rounded-full"
+                    objectFit="cover"
+                    grayscale={true}
+                    width={64}
+                    height={64}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-cyan/20 rounded-full" />
                 </div>
                 <div>
                   <p className="font-bold text-foreground">{testimonials[activeIndex].name}</p>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { MapPin, Mail, Phone, ArrowUpRight, Linkedin, Twitter } from "lucide-react";
+import { MapPin, Mail, Phone, MessageCircle, ArrowUpRight, Linkedin, Twitter } from "lucide-react";
 
 const footerLinks = {
   company: [
@@ -114,15 +114,26 @@ export function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:info@fincaresolutions.ae" className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group">
+                  <a href="mailto:Prateek.Choudhary@financecare.com" className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group">
                     <Mail className="w-5 h-5 text-secondary flex-shrink-0" />
-                    <span className="text-sm">info@fincaresolutions.ae</span>
+                    <span className="text-sm break-all">Prateek.Choudhary@financecare.com</span>
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+971000000000" className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group">
+                  <a href="tel:+971585583870" className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group">
                     <Phone className="w-5 h-5 text-secondary flex-shrink-0" />
-                    <span className="text-sm">+971 XX XXX XXXX</span>
+                    <span className="text-sm">+971 58 558 3870</span>
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://wa.me/971585583870?text=Hello%20Mr.%20Prateek%20Choudhary%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group"
+                  >
+                    <MessageCircle className="w-5 h-5 text-[#25D366] flex-shrink-0" />
+                    <span className="text-sm">+971 58 558 3870 (WhatsApp)</span>
                   </a>
                 </li>
               </ul>
