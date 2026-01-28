@@ -143,6 +143,75 @@
 
   /* Prevent horizontal scroll on mobile */
   @media (max-width: 768px) {
+    html, body {
+      overflow-x: hidden !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+      position: relative;
+    }
+
+    /* Universal containment: nothing should exceed viewport width on mobile */
+    body > * {
+      max-width: 100vw !important;
+      overflow-x: hidden !important;
+    }
+
+    /* Clamp common layout wrappers/containers (covers container-custom + most section wrappers) */
+    .container,
+    .section,
+    .wrapper,
+    .container-custom,
+    .section-padding,
+    [class*="container"],
+    [class*="section"],
+    [class*="wrapper"] {
+      max-width: 100vw !important;
+      width: 100% !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      overflow-x: hidden !important;
+    }
+
+    /* Ensure container padding is mobile-friendly and doesn't cause overflow */
+    .container-custom,
+    [class*="container"] {
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+    }
+
+    /* Prevent grid/flex children from forcing overflow */
+    .grid,
+    [class*="grid"] {
+      min-width: 0 !important;
+      max-width: 100% !important;
+    }
+
+    .flex,
+    [class*="flex"] {
+      min-width: 0 !important;
+      max-width: 100% !important;
+    }
+
+    /* Common “card” primitives used across the site */
+    .card-premium,
+    .card-glass,
+    [class*="card"] {
+      max-width: 100% !important;
+    }
+
+    /* Long strings (emails/phones/URLs) should wrap instead of expanding layout */
+    a, p, span, li, h1, h2, h3, h4, h5, h6 {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    /* Any fixed-width utility (e.g., w-[600px]) should never exceed viewport */
+    [class*="w-["],
+    [class*="min-w-["],
+    [class*="max-w-["] {
+      max-width: 100% !important;
+    }
+
     body {
       -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;

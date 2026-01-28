@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight, Phone, Mail } from "lucide-react";
+import { ArrowRight, Phone, Mail, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { OptimizedImage } from "@/components/OptimizedImage";
 
@@ -103,7 +103,7 @@ export function CTASection() {
                 className="space-y-4"
               >
                 <a
-                  href="tel:+971000000000"
+                  href="tel:+971585583870"
                   className="flex items-center gap-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 group"
                 >
                   <div className="w-14 h-14 rounded-xl bg-secondary/20 flex items-center justify-center group-hover:bg-secondary/30 transition-colors">
@@ -111,12 +111,12 @@ export function CTASection() {
                   </div>
                   <div>
                     <p className="text-white/60 text-sm mb-1">Call Us</p>
-                    <p className="text-white font-semibold text-lg">+971 XX XXX XXXX</p>
+                    <p className="text-white font-semibold text-lg">+971 58 558 3870</p>
                   </div>
                 </a>
 
                 <a
-                  href="mailto:info@fincaresolutions.ae"
+                  href="mailto:Prateek.Choudhary@financecare.com"
                   className="flex items-center gap-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 group"
                 >
                   <div className="w-14 h-14 rounded-xl bg-cyan/20 flex items-center justify-center group-hover:bg-cyan/30 transition-colors">
@@ -124,7 +124,22 @@ export function CTASection() {
                   </div>
                   <div>
                     <p className="text-white/60 text-sm mb-1">Email Us</p>
-                    <p className="text-white font-semibold text-lg">info@fincaresolutions.ae</p>
+                    <p className="text-white font-semibold text-lg break-all">Prateek.Choudhary@financecare.com</p>
+                  </div>
+                </a>
+
+                <a
+                  href={`https://wa.me/971585583870?text=Hello%20Fincare%20Solutions%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 group"
+                >
+                  <div className="w-14 h-14 rounded-xl bg-[#25D366]/20 flex items-center justify-center group-hover:bg-[#25D366]/30 transition-colors">
+                    <MessageCircle className="w-6 h-6 text-[#25D366]" />
+                  </div>
+                  <div>
+                    <p className="text-white/60 text-sm mb-1">WhatsApp Us</p>
+                    <p className="text-white font-semibold text-lg">+971 58 558 3870</p>
                   </div>
                 </a>
               </motion.div>

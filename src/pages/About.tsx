@@ -112,9 +112,9 @@ export default function About() {
             initial={{ opacity: 0, y: 40 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-white rounded-3xl shadow-[var(--shadow-lg)] p-8 lg:p-12"
+            className="bg-white rounded-3xl shadow-[var(--shadow-lg)] overflow-hidden p-6 sm:p-8 lg:p-12"
           >
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="text-3xl sm:text-4xl font-bold text-primary mb-2">
@@ -141,7 +141,7 @@ export default function About() {
               initial={{ opacity: 0, x: -40 }}
               animate={storyInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
-              className="relative order-2 lg:order-1"
+              className="relative order-2 lg:order-1 overflow-hidden rounded-3xl"
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <OptimizedImage
@@ -193,7 +193,7 @@ export default function About() {
               initial={{ opacity: 0, x: 40 }}
               animate={storyInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
+              className="relative overflow-hidden rounded-3xl"
             >
               {/* Background Story Image */}
               <div className="absolute inset-0 rounded-3xl overflow-hidden opacity-10">
@@ -205,24 +205,24 @@ export default function About() {
                 />
               </div>
               
-              <div className="grid grid-cols-2 gap-4 relative z-10">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 relative z-10">
                 <div className="space-y-4">
-                  <div className="bg-gradient-to-br from-secondary/10 to-cyan/10 rounded-3xl p-6 h-48 flex flex-col justify-end">
+                  <div className="bg-gradient-to-br from-secondary/10 to-cyan/10 rounded-3xl p-4 sm:p-6 h-44 sm:h-48 flex flex-col justify-end">
                     <Shield className="w-10 h-10 text-secondary mb-3" />
                     <p className="font-semibold text-foreground">UAE Registered</p>
                     <p className="text-sm text-muted-foreground">Ajman Free Zone</p>
                   </div>
-                  <div className="bg-gradient-to-br from-gold/10 to-orange-400/10 rounded-3xl p-6 h-36 flex flex-col justify-end">
+                  <div className="bg-gradient-to-br from-gold/10 to-orange-400/10 rounded-3xl p-4 sm:p-6 h-32 sm:h-36 flex flex-col justify-end">
                     <TrendingUp className="w-10 h-10 text-gold mb-3" />
                     <p className="font-semibold text-foreground">94% Success Rate</p>
                   </div>
                 </div>
-                <div className="space-y-4 pt-8">
-                  <div className="bg-primary rounded-3xl p-6 h-36 flex flex-col justify-end">
+                <div className="space-y-4 pt-6 sm:pt-8">
+                  <div className="bg-primary rounded-3xl p-4 sm:p-6 h-32 sm:h-36 flex flex-col justify-end">
                     <Users className="w-10 h-10 text-secondary mb-3" />
                     <p className="font-semibold text-white">150+ Clients</p>
                   </div>
-                  <div className="bg-gradient-to-br from-cyan/10 to-blue-500/10 rounded-3xl p-6 h-48 flex flex-col justify-end">
+                  <div className="bg-gradient-to-br from-cyan/10 to-blue-500/10 rounded-3xl p-4 sm:p-6 h-44 sm:h-48 flex flex-col justify-end">
                     <Globe className="w-10 h-10 text-cyan mb-3" />
                     <p className="font-semibold text-foreground">GCC Coverage</p>
                     <p className="text-sm text-muted-foreground">Regional expertise</p>
@@ -305,10 +305,10 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="max-w-4xl mx-auto"
           >
-            <div className="card-premium p-8 lg:p-12">
+            <div className="card-premium overflow-hidden p-6 sm:p-8 lg:p-12">
               <div className="grid md:grid-cols-[300px_1fr] gap-8 items-center">
                 {/* Professional Portrait */}
-                <div className="relative">
+                <div className="relative overflow-hidden">
                   <div className="relative w-full aspect-square rounded-2xl overflow-hidden ring-4 ring-secondary/20">
                     <OptimizedImage
                       src="/prateek-choudhary.jpg"
@@ -322,7 +322,7 @@ export default function About() {
                     <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 to-cyan/20" />
                   </div>
                   {/* Decorative elements */}
-                  <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-secondary to-cyan rounded-2xl opacity-20 blur-xl" />
+                  <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-secondary to-cyan rounded-2xl opacity-20 blur-xl pointer-events-none" />
                 </div>
 
                 {/* Content */}
