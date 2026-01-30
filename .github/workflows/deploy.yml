@@ -8,8 +8,8 @@ on:
 
 env:
   NODE_VERSION: '20.x'
-  AWS_REGION: 'us-east-1'
-  S3_BUCKET: 'finanacecare.com '
+  AWS_REGION: 'ap-south-1'   # ⚠️ change to ap-south-1 if bucket is in Mumbai
+  S3_BUCKET: 'finanacecare.com'
 
 jobs:
   deploy:
@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
@@ -78,7 +78,7 @@ jobs:
           if [ -n "$DISTRIBUTION_ID" ]; then
             echo "🚀 Creating CloudFront invalidation for $DISTRIBUTION_ID"
             aws cloudfront create-invalidation \
-              --distribution-id $DISTRIBUTION_ID \
+              --distribution-id "$DISTRIBUTION_ID" \
               --paths "/*"
           else
             echo "⚠️ CloudFront Distribution ID not set. Skipping invalidation."
