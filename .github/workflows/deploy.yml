@@ -1,21 +1,21 @@
-name: Deploy to AWS S3 and CloudFront
+name: Deploy FINCARE Website to AWS S3 and CloudFront
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch: # Allow manual triggering
+  workflow_dispatch:
 
 env:
   NODE_VERSION: '20.x'
-  AWS_REGION: 'us-east-1' # Change to your AWS region if different
+  AWS_REGION: 'us-east-1'
   S3_BUCKET: 'fincare.com'
 
 jobs:
   deploy:
     name: Build and Deploy
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,27 +25,23 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-          cache-dependency-path: ./fincare-elevate/package-lock.json
 
       - name: Install dependencies
-        working-directory: ./fincare-elevate
         run: npm ci
 
       - name: Build project
-        working-directory: ./fincare-elevate
         run: npm run build
         env:
           NODE_ENV: production
 
       - name: Verify build output
-        working-directory: ./fincare-elevate
         run: |
           if [ ! -d "dist" ]; then
             echo "❌ Build failed: dist directory not found"
             exit 1
           fi
           if [ ! -f "dist/index.html" ]; then
-            echo "❌ Build failed: index.html not found in dist"
+            echo "❌ Build failed: index.html not found"
             exit 1
           fi
           echo "✅ Build output verified"
@@ -58,8 +54,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
-      - name: Upload to S3
-        working-directory: ./fincare-elevate
+      - name: Upload assets to S3 (cacheable)
         run: |
           aws s3 sync dist/ s3://${{ env.S3_BUCKET }}/ \
             --delete \
@@ -67,8 +62,9 @@ jobs:
             --cache-control "public, max-age=31536000, immutable" \
             --exclude "*.html" \
             --exclude "*.json"
-          
-          # Upload HTML files with no-cache
+
+      - name: Upload HTML files to S3 (no cache)
+        run: |
           aws s3 sync dist/ s3://${{ env.S3_BUCKET }}/ \
             --delete \
             --exact-timestamps \
@@ -77,20 +73,15 @@ jobs:
             --include "*.json"
 
       - name: Invalidate CloudFront cache
-        if: secrets.CLOUDFRONT_DISTRIBUTION_ID != ''
         run: |
           DISTRIBUTION_ID="${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}"
-          if [ -n "$DISTRIBUTION_ID" ] && [ "$DISTRIBUTION_ID" != "" ]; then
-            echo "Creating CloudFront invalidation for distribution: $DISTRIBUTION_ID"
-            INVALIDATION_ID=$(aws cloudfront create-invalidation \
+          if [ -n "$DISTRIBUTION_ID" ]; then
+            echo "🚀 Creating CloudFront invalidation for $DISTRIBUTION_ID"
+            aws cloudfront create-invalidation \
               --distribution-id $DISTRIBUTION_ID \
-              --paths "/*" \
-              --query 'Invalidation.Id' \
-              --output text)
-            echo "✅ CloudFront invalidation created: $INVALIDATION_ID"
-            echo "⏳ Cache invalidation in progress. This may take a few minutes."
+              --paths "/*"
           else
-            echo "⚠️ CloudFront Distribution ID not set, skipping invalidation"
+            echo "⚠️ CloudFront Distribution ID not set. Skipping invalidation."
           fi
 
       - name: Deployment summary
