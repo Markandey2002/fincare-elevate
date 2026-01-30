@@ -9,7 +9,7 @@ on:
 env:
   NODE_VERSION: '20.x'
   AWS_REGION: 'us-east-1'
-  S3_BUCKET: 'fincare.com'
+  S3_BUCKET: 'finanacecare.com '
 
 jobs:
   deploy:
