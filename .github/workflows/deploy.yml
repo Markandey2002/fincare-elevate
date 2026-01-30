@@ -72,17 +72,20 @@ jobs:
             --include "*.html" \
             --include "*.json"
 
-      - name: Invalidate CloudFront cache
-        run: |
-          DISTRIBUTION_ID="${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}"
-          if [ -n "$DISTRIBUTION_ID" ]; then
-            echo "🚀 Creating CloudFront invalidation for $DISTRIBUTION_ID"
-            aws cloudfront create-invalidation \
-              --distribution-id "$DISTRIBUTION_ID" \
-              --paths "/*"
-          else
-            echo "⚠️ CloudFront Distribution ID not set. Skipping invalidation."
-          fi
+      # /*- name: Invalidate CloudFront cache
+      #   run: |
+      #     DISTRIBUTION_ID="${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}"
+      #     if [ -n "$DISTRIBUTION_ID" ]; then
+      #       echo "🚀 Creating CloudFront invalidation for $DISTRIBUTION_ID"
+      #       aws cloudfront create-invalidation \
+      #         --distribution-id "$DISTRIBUTION_ID" \
+      #         --paths "/*"
+      #     else
+      #       echo "⚠️ CloudFront Distribution ID not set. Skipping invalidation."
+      #     fi
+      #     */
+      - name: CloudFront invalidation (temporarily disabled)
+        run: echo "CloudFront invalidation skipped for now"
 
       - name: Deployment summary
         run: |
