@@ -22,7 +22,7 @@ const contactPerson = {
   designation: "Managing Director",
   mobile: "+971 58 558 3870",
   whatsapp: "+971 58 558 3870",
-  email: "Prateek.Choudhary@financecare.com",
+  email: "Prateek.choudhary@finanacecare.com",
 };
 
 export default function Contact() {

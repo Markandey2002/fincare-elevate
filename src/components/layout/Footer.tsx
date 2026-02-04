@@ -114,9 +114,9 @@ export function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:Prateek.Choudhary@financecare.com" className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group">
+                  <a href="mailto:Prateek.choudhary@finanacecare.com" className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group">
                     <Mail className="w-5 h-5 text-secondary flex-shrink-0" />
-                    <span className="text-sm break-all">Prateek.Choudhary@financecare.com</span>
+                    <span className="text-sm break-all">Prateek.choudhary@finanacecare.com</span>
                   </a>
                 </li>
                 <li>

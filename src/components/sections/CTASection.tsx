@@ -116,7 +116,7 @@ export function CTASection() {
                 </a>
 
                 <a
-                  href="mailto:Prateek.Choudhary@financecare.com"
+                  href="mailto:Prateek.choudhary@finanacecare.com"
                   className="flex items-center gap-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 group"
                 >
                   <div className="w-14 h-14 rounded-xl bg-cyan/20 flex items-center justify-center group-hover:bg-cyan/30 transition-colors">
@@ -124,7 +124,7 @@ export function CTASection() {
                   </div>
                   <div>
                     <p className="text-white/60 text-sm mb-1">Email Us</p>
-                    <p className="text-white font-semibold text-lg break-all">Prateek.Choudhary@financecare.com</p>
+                    <p className="text-white font-semibold text-lg break-all">Prateek.choudhary@finanacecare.com</p>
                   </div>
                 </a>
 
