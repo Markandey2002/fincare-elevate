@@ -36,28 +36,18 @@ export function Header() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
             ? "bg-white/80 backdrop-blur-xl shadow-[var(--shadow-md)] border-b border-border/50"
             : "bg-transparent"
-        }`}
+          }`}
       >
         <div className="container-custom">
           <nav className="flex items-center justify-between h-16 sm:h-18 md:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 sm:gap-3 group z-50 relative">
-              <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-secondary to-cyan flex items-center justify-center shadow-[var(--shadow-glow)] group-hover:shadow-[0_0_30px_-5px_hsla(168,76%,36%,0.6)] transition-shadow duration-300">
-                <span className="text-white font-bold text-sm sm:text-lg">F</span>
-              </div>
-              <div className="flex flex-col">
-                <span className={`font-bold text-sm sm:text-base md:text-lg tracking-tight transition-colors ${isScrolled ? 'text-primary' : 'text-white'}`}>
-                  FINCARE
-                </span>
-                <span className={`text-[8px] sm:text-[9px] md:text-[10px] font-medium tracking-widest transition-colors ${isScrolled ? 'text-muted-foreground' : 'text-white/80'}`}>
-                  SOLUTIONS
-                </span>
-              </div>
+            <Link to="/" className="z-50 relative h-full flex items-center">
+              <Logo size="lg" light={!isScrolled} />
             </Link>
+
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
@@ -65,11 +55,10 @@ export function Header() {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-lg hover:bg-muted ${
-                    location.pathname === link.path
+                  className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-lg hover:bg-muted ${location.pathname === link.path
                       ? "text-secondary"
                       : "text-foreground/80 hover:text-foreground"
-                  }`}
+                    }`}
                 >
                   {link.name}
                   {location.pathname === link.path && (
@@ -133,11 +122,10 @@ export function Header() {
                   >
                     <Link
                       to={link.path}
-                      className={`block px-4 py-3.5 sm:py-3 min-h-[44px] rounded-xl font-medium transition-all duration-300 flex items-center ${
-                        location.pathname === link.path
+                      className={`block px-4 py-3.5 sm:py-3 min-h-[44px] rounded-xl font-medium transition-all duration-300 flex items-center ${location.pathname === link.path
                           ? "bg-secondary/10 text-secondary"
                           : "text-foreground active:bg-muted"
-                      }`}
+                        }`}
                     >
                       {link.name}
                     </Link>

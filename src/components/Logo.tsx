@@ -1,3 +1,4 @@
+import logo from "@/assets/logo.png";
 import { motion } from "framer-motion";
 
 interface LogoProps {
@@ -46,10 +47,10 @@ export function Logo({ variant = "full", className = "", size = "md", light = fa
               <stop offset="100%" stopColor="hsl(188, 94%, 48%)" />
             </linearGradient>
           </defs>
-          
+
           {/* Background circle */}
           <circle cx="50" cy="50" r="48" fill="url(#logoGradient)" />
-          
+
           {/* Stylized F */}
           <path
             d="M 30 25 L 30 75 M 30 30 L 60 30 M 30 50 L 55 50"
@@ -58,7 +59,7 @@ export function Logo({ variant = "full", className = "", size = "md", light = fa
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-          
+
           {/* Growth arrow integrated */}
           <path
             d="M 65 40 L 75 50 L 65 60"
@@ -75,61 +76,16 @@ export function Logo({ variant = "full", className = "", size = "md", light = fa
 
   return (
     <motion.div
-      className={`flex items-center gap-3 ${className}`}
+      className={`${className}`}
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.2 }}
     >
-      {/* Icon */}
-      <div className={sizeClasses[size].split(" ")[0]}>
-        <svg
-          viewBox="0 0 100 100"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full"
-        >
-          <defs>
-            <linearGradient id="logoGradientFull" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="hsl(168, 76%, 36%)" />
-              <stop offset="100%" stopColor="hsl(188, 94%, 48%)" />
-            </linearGradient>
-          </defs>
-          
-          <circle cx="50" cy="50" r="48" fill="url(#logoGradientFull)" />
-          <path
-            d="M 30 25 L 30 75 M 30 30 L 60 30 M 30 50 L 55 50"
-            stroke="white"
-            strokeWidth="6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M 65 40 L 75 50 L 65 60"
-            stroke="white"
-            strokeWidth="5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            fill="none"
-          />
-        </svg>
-      </div>
-      
-      {/* Text */}
-      <div className="flex flex-col">
-        <span
-          className={`font-bold tracking-tight ${textSizes[size]} ${
-            light ? "text-white" : "text-primary"
-          }`}
-        >
-          FINCARE
-        </span>
-        <span
-          className={`font-medium tracking-widest ${subtextSizes[size]} ${
-            light ? "text-white/70" : "text-muted-foreground"
-          }`}
-        >
-          SOLUTIONS
-        </span>
-      </div>
+      <img
+        src={logo}
+        alt="Fincare Solutions Logo"
+        className="h-24 sm:h-36 md:h-32 w-auto"
+      />
     </motion.div>
   );
+
 }
